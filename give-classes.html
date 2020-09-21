@@ -7,6 +7,7 @@
     <title>Proffy</title>
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/partials/header.css">
+    <link rel="stylesheet" href="/styles/partials/forms.css">
     <link rel="stylesheet" href="/styles/partials/page-give-classes.css">
 
     <link <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
@@ -55,7 +56,77 @@
                         <textarea name="bio" id="bio" required></textarea>
                     </div>
                 </fieldset>
+
+
+
+                <fieldset>
+                    <legend>Sobre a aula</legend>
+                    <div class="select-block">
+                        <label for="subject">Matéria</label>
+                        <select name="subject" id="subject" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="1">Artes</option>
+                            <option value="2">Biologia</option>
+                            <option value="3">Ciências</option>
+                            <option value="4">Design gráfico</option>
+                            <option value="5">Educação Física</option>
+                            <option value="6">Física</option>
+                            <option value="7">Geografia</option>
+                            <option value="8">História</option>
+                            <option value="9">Matemática</option>
+                            <option value="10">Português</option>
+                            <option value="11">Química</option>
+                            <option value="12">Programação</option>
+                        </select>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="cost"> Custo da sua hora/aula
+                            <small>(R$)</small>
+                        </label>
+                        <input type="cost" id="cost" type="number" required>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend> Horários disponíveis
+                        <button id="add-time">+ Novo Horário</button>
+                    </legend>
+
+                    <div class="schedule-item">
+
+                        <div class="select-block">
+                            <label for="weekday">Dia da semana</label>
+                            <select name="weekday[]" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="0">Domingo</option>
+                                <option value="1">Segunda-feira</option>
+                                <option value="2">Terça-feira</option>
+                                <option value="3">Quarta-feira</option>
+                                <option value="4">Quinta-feira</option>
+                                <option value="5">Sexta-feira</option>
+                                <option value="6">Sábado</option>
+                            </select>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_from">Das</label>
+                            <input type="time" id="time_from" name="time_from[]" required>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_from">Até</label>
+                            <input type="time" id="time_to" name="time_to[]" required>
+                        </div>
+                    </div>
+                </fieldset>
             </form>
+
+            <p>
+                <img src="/img/icons/warning.svg" alt="Aviso importante"> Importante <br> Preencha todos os dados
+            </p>
+            <button type="submit" form="create-class"> Salvar cadastro</button>
         </main>
     </div>
     </div>
