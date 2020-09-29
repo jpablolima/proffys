@@ -1,4 +1,4 @@
-const proffs = [{
+const proffys = [{
     name: "João Pablo",
     avatar: "https://instagram.fbsb15-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119713586_180415873580102_2347263711263243162_n.jpg?_nc_ht=instagram.fbsb15-1.fna.fbcdn.net&_nc_ohc=qrPdJCWc-4wAX9xZoh0&oh=fcfdd0ae0352b303e56283e61da5329e&oe=5F93CD80",
     whatsap: 6199807353,
@@ -20,12 +20,14 @@ const proffs = [{
     time_to: [1220]
 }]
 
+
+
 function pageLanding(req, res) {
     return res.render("index.html");
 }
 
 function pageStudy(req, res) {
-    return res.render("study.html");
+    return res.render("study.html", { proffys });
 }
 
 function pageGiveClasses(req, res) {

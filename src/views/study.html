@@ -70,44 +70,28 @@
         </header>
 
         <main>
+            {%for proffy in proffys %}
+
             <article class="teacher-item">
                 <header>
-                    <img src="https://instagram.fbsb15-1.fna.fbcdn.net/v/t51.2885-19/s150x150/119713586_180415873580102_2347263711263243162_n.jpg?_nc_ht=instagram.fbsb15-1.fna.fbcdn.net&_nc_ohc=qrPdJCWc-4wAX9xZoh0&oh=fcfdd0ae0352b303e56283e61da5329e&oe=5F93CD80" alt="João Pablo">
+                    <img src="{{proffy.avatar}}" alt="{{proffy.name}}">
                     <div>
-                        <strong>João Pablo</strong>
-                        <span>Programação</span>
-                    </div>
-                </header>
-                <p>
-                    Entusiasta e apaixonado por tecnologias.<br><br>Software Developer | Pós-Graduado Banco de Dados e Business Intelligence Soft Skills: ReactJs, NodeJs, JavaScript, HTML, CSS, Python, Git, Criação de API, Power BI, MongoDB, SQL, Heroku,
-                    Linux
-                </p>
-                <footer>
-                    <p>Preço/Hora <strong>$50,00</strong></p>
-                    <button type="button"><img src="/img/icons/whatsapp.svg" alt="whatsapp">Entrar em contato</button>
-                </footer>
-                </header>
-            </article>
-            <article class="teacher-item">
-                <header>
-                    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEehVhjry0R0g/profile-displayphoto-shrink_100_100/0?e=1603324800&v=beta&t=wIypMmdskrOSbZSEmQofOrO3LL_lnYUsrhRsSsaDLh4" alt="Luan">
-                    <div>
-                        <strong>Luan Lima</strong>
-                        <span>Design gráfico</span>
+                        <strong>{{proffy.name}}</strong>
+                        <span>{{proffy.subject}}</span>
                     </div>
                 </header>
 
-                <p>
-                    Entusiasta e apaixonado por Computação Gráfica e Design 3D .<br><br> Acelere sua Criatividade. Soft Skills: Photoshop, InDesign, Adobe Premiere Pro, llustrator, Adobe XD, Autodesk Maya, Zbrush.
-                </p>
+                <p>{{proffy.bio}}</p>
                 <footer>
-                    <p>Preço/Hora <strong>$40,00</strong>
-                    </p>
-                    <button type="button">
-            <img src="/img/icons/whatsapp.svg" alt="whatsapp">Entrar em contato</button>
+                    <p>Preço/Hora <strong>R${{proffy.cost}}</strong></p>
+                    <a href="https://api.whatsapp.com/send?phone=55{{proffy.whatsapp}}&text=Tenho interesse na sua aula de {{proffy.name}}" class="button" target="_blank">
+                        <img src="/img/icons/whatsapp.svg" alt="Whatsapp"> Entarar em contato
+                    </a>
                 </footer>
                 </header>
             </article>
+            {%endfor%}
+
         </main>
 
     </div>
