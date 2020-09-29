@@ -8,23 +8,48 @@ const proffs = [{
     weekday: [0],
     time_frm: [720],
     time_to: [1220]
+}, {
+    name: "Luan Lima",
+    avatar: "https://media-exp1.licdn.com/dms/image/C4D03AQEehVhjry0R0g/profile-displayphoto-shrink_100_100/0?e=1603324800&v=beta&t=wIypMmdskrOSbZSEmQofOrO3LL_lnYUsrhRsSsaDLh4",
+    whatsap: 6199907553,
+    bio: "Entusiasta e apaixonado por Computação Gráfica e Design 3D .<br><br> Acelere sua Criatividade. Soft Skills: Photoshop, InDesign, Adobe Premiere Pro, llustrator, Adobe XD, Autodesk Maya, Zbrush.",
+    subject: "Design gráfico",
+    cost: 40,
+    weekday: [1],
+    time_frm: [720],
+    time_to: [1220]
 }]
+
+function pageLanding(req, res) {
+    return res.render("index.html");
+}
+
+function pageStudy(req, res) {
+    return res.render("study.html");
+}
+
+function pageGiveClasses(req, res) {
+    return res.render("give-classes.html");
+}
+
 
 
 
 const express = require('express');
 const server = express();
+const nunjucks = require('nunjucks');
 
-server.use(express.static('public'))
+// configuração do Nunjucks
+nunjucks.configure('src/views', {
+    express: server,
+    noCache: true,
+});
 
-.get("/", (req, res) => {
-        return res.sendFile(__dirname + '/views/index.html');
-    })
-    .get("/study", (req, res) => {
-        return res.sendFile(__dirname + '/views/study.html');
-    })
-    .get("/give-classes", (req, res) => {
-        return res.sendFile(__dirname + '/views/give-classes.html');
-    })
-
-.listen(5500);
+server
+// configuração de arquivos estáticos (css, scripts, imagens)
+    .use(express.static('public'))
+    // rotas da aplicação
+    .get("/", pageLanding)
+    .get("/study", pageStudy)
+    .get("/give-classes", pageGiveClasses)
+    .listen(5500);
