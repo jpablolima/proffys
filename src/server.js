@@ -20,6 +20,32 @@ const proffys = [{
     time_to: [1220]
 }, ]
 
+const subjects = [
+
+    "Artes",
+    "Biologia",
+    "Ciências",
+    "Design gráfico",
+    "Educação Física",
+    "Física",
+    "Geografia",
+    "História",
+    "Matemática",
+    "Português",
+    "Química",
+    "Programação",
+]
+
+const weekday = [
+    "Domingo",
+    "Segunda-Feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",
+
+]
 
 
 function pageLanding(req, res) {
@@ -27,8 +53,12 @@ function pageLanding(req, res) {
 }
 
 function pageStudy(req, res) {
+    const filters = req.query;
     return res.render("study.html", {
-        proffys
+        proffys,
+        filters,
+        subjects,
+        weekday
     });
 }
 
