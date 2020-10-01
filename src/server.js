@@ -36,7 +36,7 @@ const subjects = [
     "Programação",
 ]
 
-const weekday = [
+const weekdays = [
     "Domingo",
     "Segunda-Feira",
     "Terça-feira",
@@ -46,6 +46,14 @@ const weekday = [
     "Sábado",
 
 ]
+
+
+// Funcionalidades 
+function getSubject(subjectNumber) {
+    const position = +subjectNumber - 1
+    return subjects[position];
+}
+
 
 
 function pageLanding(req, res) {
@@ -58,15 +66,29 @@ function pageStudy(req, res) {
         proffys,
         filters,
         subjects,
-        weekday
+        weekdays
     });
 }
 
 function pageGiveClasses(req, res) {
-    return res.render("give-classes.html");
+    const data = req.query;
+
+    const isNotEmpty = Object.keys(data).length > 0
+
+    if (isNotEmpty) {
+
+        data.subject = getSubject(data.subject)
+
+        proffys.push(data);
+
+        return res.redirect('/study');
+    } else {
+
+        return res.render("give-classes.html", { subjects, weekdays });
+
+    }
+
 }
-
-
 
 
 const express = require('express');
