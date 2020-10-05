@@ -3,7 +3,7 @@ const createProffy = require('./createProffy');
 
 
 
-Database.then((db) => {
+Database.then(async(db) => {
     // Inserir dados
 
     proffyValue = {
@@ -22,7 +22,7 @@ Database.then((db) => {
 
     }
 
-    classScheduleValue = [{
+    classScheduleValues = [{
             weekday: 1,
             time_from: 720,
             time_to: 1220
@@ -36,7 +36,7 @@ Database.then((db) => {
         }
     ]
 
-    // createProffy(db, {proffyValue,classValue, classScheduleValue })
+    await createProffy(db, { proffyValue, classValue, classScheduleValues })
 
 
 });
